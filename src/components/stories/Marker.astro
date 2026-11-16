@@ -1,12 +1,12 @@
 ---
 interface Props {
-  volume?: number;
+  volume: number;
 }
 
 const { volume } = Astro.props;
 ---
 
-<div class="bg-storysecondary relative px-4 pt-4 sm:w-38 shrink-0 sm:h-50 w-24 h-28 hidden md:block">
+<div class="bg-storysecondary text-storyprimary relative px-4 pt-4 sm:w-38 shrink-0 sm:h-50 w-24 h-28 hidden md:block">
   {volume !== undefined && (
     <div class="font-noto-sans-mono font-bold absolute top-0 -left-2 sm:-left-4 pt-1 sm:pl-6 sm:pr-4 pl-4 pr-1 leading-tight border-b-storydivider border-b sm:text-lg text-xs">
       VOL.{volume}
@@ -17,7 +17,7 @@ const { volume } = Astro.props;
   </div>
 </div>
 
-<div class="md:hidden bg-storysecondary p-2 flex items-end justify-between">
+<div class="md:hidden bg-storysecondary text-storyprimary p-2 flex items-end justify-between">
   <div class="font-playfair-display leading-none text-4xl font-bold">
     Our Stories
   </div>

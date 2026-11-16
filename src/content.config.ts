@@ -18,10 +18,13 @@ import { optional } from "astro:schema";
 const story = defineCollection({
   loader: glob({pattern: "**/*.md", base: "./src/data/story"}),
   schema: z.object({
+    volume: z.number(),
     slug: z.string(),
     title: z.string(),
     author: z.string(),
-    excerpt: optional(z.string())
+    spotifyEmbedURL: optional(z.string()),
+    excerpt: optional(z.string()),
+    quote: optional(z.string())
   })
 })
 

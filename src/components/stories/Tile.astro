@@ -4,24 +4,27 @@ interface Props {
   slug: string;
   volume?: number;
   author?: string;
+  excerpt?: string;
 }
 
-const { title, volume, slug, author } = Astro.props;
+const { title, volume, slug, author, excerpt } = Astro.props;
 ---
 
-<article class="md:w-80 transition-all duration-300 hover:shadow-story-lg hover:-translate-y-2 hover:-translate-x-1 active:shadow-story-md active:-translate-y-1 active:-translate-x-0.5">
-  <a href=`/stories/${slug}`>
-    <div class="bg-storysecondary p-1 text-storyprimary text-nowrap font-noto-sans-mono font-bold text-sm leading-tight mb-2">
+<article class="transition-all border border-gray-300 duration-300 hover:shadow-story-lg hover:-translate-y-2 hover:-translate-x-1 active:shadow-story-md active:-translate-y-1 active:-translate-x-0.5">
+  <a href=`/stories/${slug}` class="flex flex-col md:w-80 min-h-50">
+    <div class="bg-storysecondary py-1 px-2 text-storyprimary text-nowrap font-noto-sans-mono font-bold text-sm leading-tight mb-1">
       VOL. {volume}
     </div>
-    <div class="p-1">
-      <h3 class="text-4xl font-bold font-playfair-display text-storyprimary mb-2">
-        {title}
-      </h3>
-
-      <span class="uppercase font-bold font-noto-sans-mono font-sm text-storyprimary">
-        By {author}
-      </span>
-    </div>
+    <h3 class="text-4xl font-bold font-playfair-display text-storyprimary mb-2 px-2">
+      {title}
+    </h3>
+    {excerpt && (
+      <p class="px-2 font-quicksand font-medium text-storyprimary line-clamp-3">
+        {excerpt}
+      </p>
+    )}
+    <span class="uppercase font-bold font-noto-sans-mono font-sm place-self-end text-storyprimary p-2 leading-none mt-auto">
+      By {author}
+    </span>
   </a>
 </article>
