@@ -8,10 +8,24 @@ const stories = await getCollection("story");
 ---
 
 <Page title="Our Stories">
-  <heading class="flex flex-col sm:flex-row gap-8 sm:gap-4 justify-between pb-8 text-storyprimary mb-8">
+  <heading>
     <Title title="Our Stories" subtitle="Tiny Testimonies of God's Love" />
   </heading>
-  <main class="relative p-4">
+  <main class="relative">
+    <div class="prose-lg mb-8">
+      <p>
+        When we share our stories with others, we have the opportunity to share
+        how we encounter God in day-to-day life. We have the opportunity to
+        break down barriers of divide and shame, as well as fear and comparison.
+        We have the opportunity to pause and remember what God has done in our
+        lives.
+      </p>
+      <p>
+        These Tiny Testimonies are our experiences with God that we get to share
+        with one another. Some are big, some are small. Some are deeply
+        impactful, some are light and humorous. But all of them matter.
+      </p>
+    </div>
     {stories.length === 0 ? (
       <div class="bg-storysecondary p-8 text-6xl text-storyprimary font-bold font-noto-sans-mono text-center uppercase">
         Coming Soon!

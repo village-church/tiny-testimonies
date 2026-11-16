@@ -13,7 +13,18 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="max-w-5xl mx-auto p-12 md:p-16">
-    <slot />
+  <body class="min-h-250 flex flex-col">
+    <div class="max-w-5xl mx-auto p-12 md:p-16">
+      <slot />
+    </div>
+    <footer class="mt-auto bg-storysecondary">
+      <div class="max-w-5xl mx-auto px-12 md:px-16 py-2">
+        A project of{" "}
+        <a href="https://avillage.church" class="underline">
+          Village Church
+        </a>
+        .
+      </div>
+    </footer>
   </body>
 </html>

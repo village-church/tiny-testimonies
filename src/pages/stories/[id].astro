@@ -30,7 +30,7 @@ const { Content } = await render(story);
     <Title title={story.data.title} author={story.data.author} />
     <Marker {volume} />
   </heading>
-  <article class="font-quicksand font-medium text-lg indent-8">
+  <article class="font-quicksand font-medium text-lg indent-8 mb-16">
     {story.data.excerpt && <Excerpt text={story.data.excerpt} />}
     <div class="prose prose-xl max-w-none indent-0">
       <Content />
