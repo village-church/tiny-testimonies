@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+
+@theme {
+    --font-playfair-display: 'Playfair Display';
+    --font-quicksand: 'Quicksand';
+    --font-noto-sans-mono: 'Noto Sans Mono';
+    --shadow-story-lg: 4px 6px 0 0 black, 0 0 2px 0 black;
+    --shadow-story-md: 2px 4px 0 0 black, 0 0 1px 0 black;
+    --color-storyprimary: #4d4d4d;
+    --color-storysecondary: #e8ce78;
+    --color-storydivider: #7a7a71;
+}
+
+@layer components {
+    .quotes {
+        @apply relative;
+
+        &::before, &::after {
+            @apply text-9xl absolute font-playfair-display content-['“'];
+            line-height: 0;
+        }
+        &::before {
+            @apply -left-12 top-10 rotate-20;
+            
+        }
+        &::after {
+            @apply -right-10 bottom-16 rotate-188;
+        }
+        
+    }
+}

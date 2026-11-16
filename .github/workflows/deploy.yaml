@@ -1,0 +1,42 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    environment:
+      name: production
+      deployment: false
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v7
+      - name: Install pnpm/node
+        uses: pnpm/setup@v3
+        with:
+          version: 12
+          runtime: node@26
+          cache: true
+      - name: Build
+        run: pnpm build
+      - name: Install Wrangler
+        run: |
+          pnpm add -D wrangler
+          pnpm install --frozen-lockfile
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy ./dist --project-name=tiny-testimonies --branch=main --commit-dirty=true
