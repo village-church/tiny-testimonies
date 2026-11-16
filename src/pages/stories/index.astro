@@ -17,7 +17,7 @@ const stories = await getCollection("story");
         Comming Soon!
       </div>
     ) : (
-      <div class="flex flex-row justify-end gap-4">
+      <div class="flex flex-row justify-start gap-4">
         {stories.map((story, index) => (
           <Tile
             title={story.data.title}
