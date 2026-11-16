@@ -9,12 +9,12 @@ const stories = await getCollection("story");
 
 <Page title="Our Stories">
   <heading class="flex flex-col sm:flex-row gap-8 sm:gap-4 justify-between pb-8 text-storyprimary mb-8">
-    <Title title="Our Stories" />
+    <Title title="Our Stories" subtitle="Tiny Testimonies of God's Love" />
   </heading>
   <main class="relative p-4">
     {stories.length === 0 ? (
       <div class="bg-storysecondary p-8 text-6xl text-storyprimary font-bold font-noto-sans-mono text-center uppercase">
-        Comming Soon!
+        Coming Soon!
       </div>
     ) : (
       <div class="flex flex-row justify-start gap-4">
