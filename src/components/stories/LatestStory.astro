@@ -9,8 +9,8 @@ const latestStory = (await getCollection("story")).sort(
 
 <article class="transition-all border border-gray-300 duration-300 hover:shadow-story-lg hover:-translate-y-2 hover:-translate-x-1 active:shadow-story-md active:-translate-y-1 active:-translate-x-0.5">
   <a href=`/stories/${latestStory.data.slug}` class="min-h-40 flex">
-    <div class="flex flex-col grow">
-      <h3 class="text-4xl font-bold font-playfair-display text-storyprimary mb-2 px-2">
+    <div class="flex flex-col grow min-w-0">
+      <h3 class="text-2xl sm:text-4xl font-bold font-playfair-display text-storyprimary mb-2 px-2 wrap-break-word">
         {latestStory.data.title}
       </h3>
       {latestStory.data.excerpt && (
@@ -18,7 +18,7 @@ const latestStory = (await getCollection("story")).sort(
           {latestStory.data.excerpt}
         </p>
       )}
-      <span class="uppercase font-bold font-noto-sans-mono font-sm text-storyprimary p-2 leading-none mt-auto">
+      <span class="uppercase font-bold font-noto-sans-mono text-sm text-storyprimary p-2 leading-none mt-auto">
         By {latestStory.data.author}
       </span>
     </div>
